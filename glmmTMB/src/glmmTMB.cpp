@@ -73,7 +73,7 @@ enum valid_covStruct {
   mat_covstruct = 7,
   toep_covstruct = 8,
   rr_covstruct = 9,
-  homdiag_covstruct = 10
+  homdiag2_covstruct = 10
 };
 
 enum valid_ziPredictCode {
@@ -288,8 +288,8 @@ Type termwise_nll(array<Type> &U, vector<Type> theta, per_term_info<Type>& term,
     }
     term.sd = sd; // For report
   }
-  else if (term.blockCode == homdiag_covstruct) {
-    // case: homdiag_covstruct
+  else if (term.blockCode == homdiag2_covstruct) {
+    // case: homdiag2_covstruct
     Type sd = exp(theta(0));
     for(int i = 0; i < term.blockReps; i++){
           for (int j = 0; j < U.rows(); j++) {
