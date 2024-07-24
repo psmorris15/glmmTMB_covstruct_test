@@ -296,9 +296,9 @@ formatVC <- function(varcor, digits = max(3, getOption("digits") - 2),
                 r <- r[, -ncol(r), drop = FALSE]
         }
         covstruct <- getCovstruct(x)
-        if (covstruct %in% c("ar1", "cs", "homdiag")) {
+        if (covstruct %in% c("ar1", "cs", "homdiag2")) {
             r <- switch(type,
-                        stddev={ if (covstruct %in%  c("ar1", "homdiag")) r[1] else r },
+                        stddev={ if (covstruct %in%  c("ar1", "homdiag2")) r[1] else r },
                         ## select lag-1 correlation
                         ## upper tri has been erased in formatCor() ...
                         correlation=paste(r[2,1],sprintf("(%s)",covstruct))
